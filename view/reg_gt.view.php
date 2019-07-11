@@ -1,8 +1,8 @@
 <?php 
 
-include "../controller_users.php";
+include "../controller/users.ctrl.php";
 
-if(isset($_POST['username_gt'])){
+if(isset($_POST[USERNAME_GT])){ 
   registraGlobeTrotter($_POST);
 }
 $already_exists = "hidden";
@@ -32,19 +32,18 @@ if(isset($_GET['username_av']) && $_GET['username_av'] == 'no'){
     <link rel="shortcut icon" href="../majestic-master/images/favicon.png"/>
   </head>
   <body>
-      <!-- <div class="container-fluid page-body-wrapper"> -->
           <div class="content-wrapper">
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Registrati come <b>GLOBETROTTER</b>!</h4>
+                    <h4 class="card-title">Registrati come <strong>GLOBETROTTER</strong>!</h4>
                     <div class="col-sm-9">
-                          <div class="<?php echo 'row '.$already_exists; ?> text-center" id="utente_esistente">
-                            <label class="text-danger">Username gi&agrave; in uso. <a href="login.view.php"><i class="mdi mdi-login-variant"></i>Accedi per continuare</a></label>
-                          </div>
-                        </div>
+                      <div class="<?php echo 'row '.$already_exists; ?> text-center" id="utente_esistente">
+                        <label class="text-danger">Username gi&agrave; in uso. <a href="login.view.php"><i class="mdi mdi-login-variant"></i>Accedi per continuare</a></label>
+                      </div>
+                    </div>
                     <form class="forms-sample" id="form_register_gt" name="form_register_gt" action="reg_gt.view.php" method="post">
                       <div class="form-group row">
                         <label for="username_gt" class="col-sm-3 col-form-label">Nome utente</label>
@@ -53,12 +52,8 @@ if(isset($_GET['username_av']) && $_GET['username_av'] == 'no'){
                           <div class="row hidden" id="invalid_username_gt">
   		                    	<label class="text-warning">Nome utente mancante o non valido</label>
   		                    </div>
-                          <div class="row hidden" id="invalid_username_gt">
-                            <label class="text-warning">Nome utente mancante o non valido</label>
-                          </div>
                         </div>
-                      </div>
-                      
+                      </div>                      
                       <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
@@ -143,7 +138,7 @@ if(isset($_GET['username_av']) && $_GET['username_av'] == 'no'){
                         </div>
                       </div>
                         
-                      <button type="button" class="btn btn-primary mr-2" onclick="onSubmit()" id="btn_reg_gt" name="btn_reg_gt">Registrati</button>
+                      <button type="button" class="btn btn-primary mr-2" onclick="onSubmit('gt')" id="btn_reg_gt" name="btn_reg_gt">Registrati</button>
                       <button type="reset" class="btn btn-light">Cancella</button>
                     </form>                 
                   </div>
@@ -158,6 +153,6 @@ if(isset($_GET['username_av']) && $_GET['username_av'] == 'no'){
   <script src="../majestic-master/js/hoverable-collapse.js"></script>
   <script src="../majestic-master/js/template.js"></script>
   <script src="../majestic-master/js/file-upload.js"></script>
-  <script type="text/javascript" src="../js/reg_gt.js"></script>
+  <script type="text/javascript" src="../js/register.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" type="text/javascript"></script>
 </html>
